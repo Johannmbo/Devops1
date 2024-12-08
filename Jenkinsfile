@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         ANSIBLE_PLAYBOOK = "ansible/playbook.yml"  // Путь до playbook
-        INVENTORY_FILE = "ansible/inventory/hosts"          // Путь до inventory-файла
-
+        INVENTORY_FILE = "ansible/inventory/hosts"      // Путь до inventory-файла
+        ANSIBLE_BECOME_PASS =  "001999"
     }
 
     stages {
