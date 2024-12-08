@@ -1,0 +1,27 @@
+---
+- name: Клонировать репозиторий frontend  
+  become_user: johann
+  git:
+    repo: "https://github.com/Johannmbo/frontend.git"
+    dest: "/mnt/c/Users/JOHANN MOULEO/Devops1/frontend2"
+  become: true
+  tags: clone_repository
+  
+
+- name: Клонировать репозиторий backend 
+  become_user: johann
+  git:
+    repo: "https://github.com/Johannmbo/backend.git"
+    dest: "/mnt/c/Users/JOHANN MOULEO/Devops1/backend2"
+  become: true
+  tags: clone_repository
+    
+
+- name: Клонировать репозиторий DevOps  
+  become_user: johann
+  git:
+    repo: "https://github.com/Johannmbo/devops.git"
+    dest: "/mnt/c/Users/JOHANN MOULEO/Devops"
+  become: true
+  tags: clone_repository
+    

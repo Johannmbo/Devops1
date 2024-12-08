@@ -1,0 +1,7 @@
+- name: Запустить сервисы c Docker Compose   
+  docker_compose:
+    project_src: "/mnt/c/Users/JOHANN MOULEO/Devops1" 
+    state: present  
+    restarted: yes
+  vars:
+    ansible_python_interpreter: /bin/python3

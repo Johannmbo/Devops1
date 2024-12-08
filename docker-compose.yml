@@ -1,0 +1,27 @@
+
+
+services:
+  frontend:
+    build:
+      context: ./frontend  
+      dockerfile: Dockerfile  
+    depends_on:
+      - backend  
+    networks:
+      - app-network
+    ports:
+      - "8080:80"
+
+  backend:
+    build:
+      context: ./backend  
+      dockerfile: Dockerfile  
+    volumes:
+      - ./data:/app/data  # Сохраняем data.txt вне контейнера  
+    networks:
+      - app-network  
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,13 @@
+- name: Развернуть микросервисы  
+  hosts: all  
+  become: true
+  become_method: sudo  
+  become_user: johann
+  vars:
+    ansible_become_pass: "001999"
+    ansible_python_interpreter: /usr/bin/python3   
+  roles:
+    - clone_repository
+    - docker_setup
+    - start_services
+    - stop_services
