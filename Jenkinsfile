@@ -8,10 +8,10 @@ pipeline {
     }
 
     stages {
-        stage('Подготовка окружения') {
+        stage('Environment setup') {
             steps {
                 script {
-                    echo "Этап 1: Подготовка окружения (установка Docker, клонирование репозиториев)"
+                    echo "step1: Environment setup (docker installation, repositories cloning)"
                 }
                 sh """
                     ansible-playbook ${ANSIBLE_PLAYBOOK} -i ${INVENTORY_FILE} --tags docker_setup,clone_repository
@@ -19,10 +19,10 @@ pipeline {
             }
         }
 
-        stage('Запуск приложений') {
+        stage('Launching applications') {
             steps {
                 script {
-                    echo "Этап 2: Запуск приложений (Docker Compose)"
+                    echo "Этап 2: Launching applications (Docker Compose)"
                 }
                 sh """
                     ansible-playbook ${ANSIBLE_PLAYBOOK} -i ${INVENTORY_FILE} --tags start_services
