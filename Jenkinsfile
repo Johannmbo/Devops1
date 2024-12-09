@@ -5,6 +5,8 @@ pipeline {
         ANSIBLE_PLAYBOOK = "ansible/playbook.yml"  // Path to the playbook  
         INVENTORY_FILE = "ansible/inventory/hosts"  // Path to the inventory file  
         ANSIBLE_BECOME_PASS = "001999"
+        ANSIBLE_HOST = "127.0.0.1"
+        ANSIBLE_USER = "johann"
     }
 
     stages {
