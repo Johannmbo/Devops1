@@ -13,6 +13,7 @@ pipeline {
                 script {
                     echo "step1: Environment setup (docker installation, repositories cloning)"
                 }
+                sshagent(['devopslab']) { // Use the ID you set for your SSH credentials 
                 sh """
                     ansible-playbook ${ANSIBLE_PLAYBOOK} -i ${INVENTORY_FILE} --tags docker_setup,clone_repository
                 """
@@ -24,6 +25,7 @@ pipeline {
                 script {
                     echo "Этап 2: Launching applications (Docker Compose)"
                 }
+                sshagent(['devopslab']) { // Use the ID you set for your SSH credentials
                 sh """
                     ansible-playbook ${ANSIBLE_PLAYBOOK} -i ${INVENTORY_FILE} --tags start_services
                 """
